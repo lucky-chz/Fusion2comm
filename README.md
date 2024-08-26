@@ -12,7 +12,7 @@ Huazhen Chu, Haizhuang Liu, Junbao Zhuo, Jiansheng Chen, Huimin Ma
 Presented at [Pattern Recognition](https://doi.org/10.1016/j.patcog.2024.110939)
 
 ![Fusion2comm](./images/Results.jpg)
-<div align='center' ><font size='2'>Single agent detection v.s. collaborative perception</font></div>
+<div align='center' ><font size='2'>Where2comm v.s. Fusion2comm</font></div>
 
 
 ## Main idea
@@ -73,22 +73,21 @@ We adopt the same setting as OpenCOOD which uses yaml file to configure all the 
 ```python
 python opencood/tools/train.py --hypes_yaml ${CONFIG_FILE} [--model_dir  ${CHECKPOINT_FOLDER}]
 ```
-Slurm 运行方法，默认配置信息已包含在submit.slurm里
+Slurm 
 ```
 #!/bin/bash
-#SBATCH -o /space/chuhz/workspace/v2x_object/Where2comm/slurm_log/job.%j.out 配置log地址 %j是job id对应于squeue里的id号
-#SBATCH -p a6000                                                             配置分区 目前只有两个分区3090 a6000
-#SBATCH --exclude=3dimage-21                                                 配置不用哪个节点
-#SBATCH --ntasks-per-node=1                                                  配置每个节点上的task数目 按照节点gpu数目写即可 最高写8，不过我们有些节点只有7个写8的话要等更久
-#SBATCH --gres=gpu:1                                                         配置每个节点上的GPU数目 最大写8
-#SBATCH --ntasks=1                                                           配置全部卡的数目
-#SBATCH --mem=80G                                                            配置内存数目
-使用方法是srun python xxxx
+#SBATCH -o /slurm_log/job.%j.out 
+#SBATCH -p a6000                                                             
+#SBATCH --exclude=3dimage-21                                                
+#SBATCH --ntasks-per-node=1                                                  
+#SBATCH --gres=gpu:1                                                         
+#SBATCH --ntasks=1                                                           
+#SBATCH --mem=80G                                                            
+Method: srun python xxxx
 ```
-watch -n 1 'squeue|grep chuhz' 只观看自己的job
-TODO: 需要增加一个DDP的slurm代码 以及启动方法 增加多卡的syncbatchnorm               
+      
 Arguments Explanation:
-- `hypes_yaml`: the path of the training configuration file, e.g. `opencood/hypes_yaml/second_early_fusion.yaml`, meaning you want to train
+- `hypes_yaml`: the path of the training configuration file, e.g. `opencoodhypes_yaml/second_early_fusion.yaml`, meaning you want to train
 an early fusion model which utilizes SECOND as the backbone. See [Tutorial 1: Config System](https://opencood.readthedocs.io/en/latest/md_files/config_tutorial.html) to learn more about the rules of the yaml files.
 - `model_dir` (optional) : the path of the checkpoints. This is used to fine-tune the trained models. When the `model_dir` is
 given, the trainer will discard the `hypes_yaml` and load the `config.yaml` in the checkpoint folder.

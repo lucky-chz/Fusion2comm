@@ -1,5 +1,5 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/where2comm-communication-efficient/3d-object-detection-on-dair-v2x)](https://paperswithcode.com/sota/3d-object-detection-on-dair-v2x?p=where2comm-communication-efficient)[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/where2comm-communication-efficient/3d-object-detection-on-v2x-sim)](https://paperswithcode.com/sota/3d-object-detection-on-v2x-sim?p=where2comm-communication-efficient)[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/where2comm-communication-efficient/monocular-3d-object-detection-on-opv2v)](https://paperswithcode.com/sota/monocular-3d-object-detection-on-opv2v?p=where2comm-communication-efficient)
-# Where2comm
+# Fusin2comm
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2209.12836)
 [![project](https://img.shields.io/badge/project-Page-blue)](https://coperception.github.io/where2comm/)
 
@@ -7,27 +7,27 @@
 
 This repository contains the official PyTorch implementation of
 
-[**Where2comm: Communication-Efficient Collaborative Perception via Spatial Confidence Maps</a>**](https://arxiv.org/abs/2209.12836)
+[**Fusion2comm: Occlusion-Guided Multi-Modal Fusion for Vehicle-Infrastructure Cooperative 3D Object Detection </a>**](https://arxiv.org/abs/2209.12836)
 <br>
 <a href="https://scholar.google.com/citations?user=XBbwb78AAAAJ&hl=zh-CN"> Yue Hu, <a href="https://github.com/dongfeng12"> Shaoheng Fang, <a href="https://chezacar.github.io/">Zixing Lei, <a href="https://github.com/Kay1794"> Yiqi Zhong, <a href="https://mediabrain.sjtu.edu.cn/sihengc/">Siheng Chen</a> 
 <br>
-Presented at [Neurips 2022](https://nips.cc/)
+Presented at [Pattern Recognition](https://doi.org/10.1016/j.patcog.2024.110939)
 
-![Where2comm](./images/dair_3d_18.gif)
+![Fusion2comm](./images/dair_3d_18.gif)
 <div align='center' ><font size='2'>Single agent detection v.s. collaborative perception</font></div>
 
 
 ## Main idea
-**Abstract:** Multi-agent collaborative perception could significantly upgrade the perception performance by enabling agents to share complementary information with each other through communication. It inevitably results in a fundamental trade-off between perception performance and communication bandwidth. To tackle this bottleneck issue, we propose a spatial confidence map, which reflects the spatial heterogeneity of perceptual information. It empowers agents to only share spatially sparse, yet perceptually critical information, contributing to where to communicate. 
+**Abstract:** In autonomous driving, leveraging sensor data (e.g. camera, LiDAR data) from both the vehicle and the infrastructure significantly improves perception capabilities. However, this integration traditionally results in increased demands on communication bandwidth. To address these challenges, we introduce Fusion2comm, an occlusion-guided feature fusion approach designed to optimize vehicle-infrastructure cooperative 3D object detection. Our innovative strategy employs an intelligent fusion of camera and LiDAR data to enhance the expressiveness of features. Subsequently, it leverages a segmentation model to extract foreground features and utilizes an occlusion-based selection of communication content, effectively easing bandwidth constraints. We propose a multimodal foreground feature fusion architecture that selectively processes and transmits critical information, substantially reducing irrelevant background data transfer. An innovative occlusion confidence-aware communication technique dynamically adjusts communication regions based on occlusion levels, ensuring efficient data exchange. Fusion2comm sets a new benchmark in the DAIR-V2X dataset, achieving an average precision of 71.25% with minimal bandwidth usage of 2**21.04 bytes. Our comprehensive experimental evaluations confirm that Fusion2comm substantially advances detection precision while simultaneously improving communication efficiency. 
 
-![Where2comm](./images/Intro.png)
+![Fusion2comm](./images/Intro.png)
 
 ## Features
 
 - Dataset Support
   - [x] DAIR-V2X
-  - [ ] OPV2V
-  - [ ] V2X-Sim 2.0
+  - [x] OPV2V
+  - [x] V2X-Sim 2.0
 
 - SOTA collaborative perception method support
     - [x] [Where2comm [Neurips2022]](https://arxiv.org/abs/2209.12836)
@@ -47,12 +47,15 @@ Presented at [Neurips 2022](https://nips.cc/)
 If you find this code useful in your research then please cite
 
 ```
-@inproceedings{Where2comm:22,
-  author    = {Yue Hu, Shaoheng Fang, Zixing Lei, Yiqi Zhong, Siheng Chen},
-  title     = {Where2comm: Communication-Efficient Collaborative Perception via Spatial Confidence Maps},
-  booktitle = {Thirty-sixth Conference on Neural Information Processing Systems (Neurips)},
-  month     = {November},  
-  year      = {2022}
+@article{CHU2024110939,
+title = {Occlusion-guided multi-modal fusion for vehicle-infrastructure cooperative 3D object detection},
+journal = {Pattern Recognition},
+pages = {110939},
+year = {2024},
+issn = {0031-3203},
+doi = {https://doi.org/10.1016/j.patcog.2024.110939},
+url = {https://www.sciencedirect.com/science/article/pii/S0031320324006903},
+author = {Huazhen Chu and Haizhuang Liu and Junbao Zhuo and Jiansheng Chen and Huimin Ma},
 }
 ```
 
@@ -147,4 +150,4 @@ Thanks for the insightful previous works in cooperative perception field.
 
 ## Contact
 
-If you have any problem with this code, please feel free to contact **18671129361@sjtu.edu.cn**.
+If you have any problem with this code, please feel free to contact **chuhuazhen@163.com**.

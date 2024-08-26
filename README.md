@@ -1,24 +1,24 @@
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/where2comm-communication-efficient/3d-object-detection-on-dair-v2x)](https://paperswithcode.com/sota/3d-object-detection-on-dair-v2x?p=where2comm-communication-efficient)[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/where2comm-communication-efficient/3d-object-detection-on-v2x-sim)](https://paperswithcode.com/sota/3d-object-detection-on-v2x-sim?p=where2comm-communication-efficient)[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/where2comm-communication-efficient/monocular-3d-object-detection-on-opv2v)](https://paperswithcode.com/sota/monocular-3d-object-detection-on-opv2v?p=where2comm-communication-efficient)
+
 # Fusin2comm
 [![paper](https://doi.org/10.1016/j.patcog.2024.110939)]
 
 
 This repository contains the official PyTorch implementation of
 
-[**Fusion2comm: Occlusion-Guided Multi-Modal Fusion for Vehicle-Infrastructure Cooperative 3D Object Detection </a>**](https://arxiv.org/abs/2209.12836)
+[**Fusion2comm: Occlusion-Guided Multi-Modal Fusion for Vehicle-Infrastructure Cooperative 3D Object Detection </a>**](https://doi.org/10.1016/j.patcog.2024.110939)
 <br>
 Huazhen Chu, Haizhuang Liu, Junbao Zhuo, Jiansheng Chen, Huimin Ma
 <br>
 Presented at [Pattern Recognition](https://doi.org/10.1016/j.patcog.2024.110939)
 
-![Fusion2comm](./images/dair_3d_18.gif)
+![Fusion2comm](./images/Results.jpg)
 <div align='center' ><font size='2'>Single agent detection v.s. collaborative perception</font></div>
 
 
 ## Main idea
 **Abstract:** In autonomous driving, leveraging sensor data (e.g. camera, LiDAR data) from both the vehicle and the infrastructure significantly improves perception capabilities. However, this integration traditionally results in increased demands on communication bandwidth. To address these challenges, we introduce Fusion2comm, an occlusion-guided feature fusion approach designed to optimize vehicle-infrastructure cooperative 3D object detection. Our innovative strategy employs an intelligent fusion of camera and LiDAR data to enhance the expressiveness of features. Subsequently, it leverages a segmentation model to extract foreground features and utilizes an occlusion-based selection of communication content, effectively easing bandwidth constraints. We propose a multimodal foreground feature fusion architecture that selectively processes and transmits critical information, substantially reducing irrelevant background data transfer. An innovative occlusion confidence-aware communication technique dynamically adjusts communication regions based on occlusion levels, ensuring efficient data exchange. Fusion2comm sets a new benchmark in the DAIR-V2X dataset, achieving an average precision of 71.25% with minimal bandwidth usage of 2**21.04 bytes. Our comprehensive experimental evaluations confirm that Fusion2comm substantially advances detection precision while simultaneously improving communication efficiency. 
 
-![Fusion2comm](./images/ab)
+![Fusion2comm](./images/ab.png)
 
 ## Features
 
@@ -28,6 +28,7 @@ Presented at [Pattern Recognition](https://doi.org/10.1016/j.patcog.2024.110939)
   - [x] V2X-Sim 2.0
 
 - SOTA collaborative perception method support
+    - [x] [Fusion2comm [PR2024]](https://doi.org/10.1016/j.patcog.2024.110939)
     - [x] [Where2comm [Neurips2022]](https://arxiv.org/abs/2209.12836)
     - [x] [V2VNet [ECCV2020]](https://arxiv.org/abs/2008.07519)
     - [x] [DiscoNet [NeurIPS2021]](https://arxiv.org/abs/2111.00643)
